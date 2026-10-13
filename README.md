@@ -18,7 +18,7 @@ against which the paper's soft penetrable sphere colloid model is validated.
 pqr_inputs/        shared antibody structure files (.pqr)  -- see pqr_inputs/README.txt
 Fig_2/             PMF, hard-sphere potential            (Figure 2)
 Fig_5_6/           PMF, Yukawa + Lennard-Jones           (Figures 5, 6)
-Fig_4_7/         many-body S(q), hard-sphere           (Figures 4, 7)
+Fig_3_4_7/         many-body S(q), hard-sphere           (Figures 3, 4, 7)
 Fig_10/            many-body S(q), Yukawa + Lennard-Jones (Figure 10)
 environment.yml
 ```
@@ -54,7 +54,8 @@ then open a figure folder's notebook.
 
 ## Running
 
-1.  Open a notebook and run the cells top to bottom.
+1. Put the `.pqr` files in `pqr_inputs/` (see `pqr_inputs/README.txt`).
+2. Open a notebook and run the cells top to bottom.
 
 Simulations are launched locally by the `run_faunus()` function defined in each
 notebook. It calls `yason.py input.yml | faunus -v 6`. **To run on a cluster or
@@ -73,7 +74,9 @@ statistics (as in the paper) increase `micro`; the many-body notebooks use
 
 ## Notes on the potentials
 
-* **Hard sphere** - excluded volume only.
+* **Hard sphere** - excluded volume only; charge and attraction off.
 * **Yukawa + Lennard-Jones** - screened Coulomb (Debye length set per ionic
   strength via `kappa()`) plus a short-range Lennard-Jones attraction with well
   depth 0.075 kT.
+* The Debye length depends on ionic strength only; the net charge and size
+  arguments to `kappa()` are multiplied by `conc = 0` and have no effect.
