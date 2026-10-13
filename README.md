@@ -54,8 +54,7 @@ then open a figure folder's notebook.
 
 ## Running
 
-1. Put the `.pqr` files in `pqr_inputs/` (see `pqr_inputs/README.txt`).
-2. Open a notebook and run the cells top to bottom.
+1.  Open a notebook and run the cells top to bottom.
 
 Simulations are launched locally by the `run_faunus()` function defined in each
 notebook. It calls `yason.py input.yml | faunus -v 6`. **To run on a cluster or
