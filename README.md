@@ -26,6 +26,12 @@ environment.yml
 Each figure folder holds one notebook that runs its simulations (writing one
 sub-directory per run) and plots the corresponding figure(s).
 
+## Prerequisites
+
+You need a conda installation. If you don't have one, install **Miniforge**
+(conda preconfigured with the conda-forge channel used here):
+https://github.com/conda-forge/miniforge . Miniconda or Anaconda work too.
+
 ## Install
 
 ```bash
@@ -35,6 +41,16 @@ conda activate sps-mab
 
 If conda cannot find `faunus=2.16.3` on conda-forge, install Faunus 2.16.3 by
 your own method and make sure `faunus` and `yason.py` are on `PATH`.
+
+## Launch Jupyter
+
+The environment includes Jupyter. From the repo root:
+
+```bash
+jupyter lab        # or:  jupyter notebook
+```
+
+then open a figure folder's notebook.
 
 ## Running
 

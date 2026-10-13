@@ -9,4 +9,5 @@ dependencies:
   - matplotlib
   - jinja2
   - jupyterlab
+  - notebook       # classic 'jupyter notebook' interface
   - pyyaml
