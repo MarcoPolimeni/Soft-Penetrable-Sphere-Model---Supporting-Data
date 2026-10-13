@@ -18,7 +18,7 @@ against which the paper's soft penetrable sphere colloid model is validated.
 pqr_inputs/        shared antibody structure files (.pqr)  -- see pqr_inputs/README.txt
 Fig_2/             PMF, hard-sphere potential            (Figure 2)
 Fig_5_6/           PMF, Yukawa + Lennard-Jones           (Figures 5, 6)
-Fig_3_4_7/         many-body S(q), hard-sphere           (Figures 3, 4, 7)
+Fig_4_7/         many-body S(q), hard-sphere           (Figures 4, 7)
 Fig_10/            many-body S(q), Yukawa + Lennard-Jones (Figure 10)
 environment.yml
 ```
