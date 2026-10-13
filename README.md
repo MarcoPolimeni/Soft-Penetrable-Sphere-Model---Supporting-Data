@@ -77,5 +77,3 @@ statistics (as in the paper) increase `micro`; the many-body notebooks use
 * **Yukawa + Lennard-Jones** - screened Coulomb (Debye length set per ionic
   strength via `kappa()`) plus a short-range Lennard-Jones attraction with well
   depth 0.075 kT.
-* The Debye length depends on ionic strength only; the net charge and size
-  arguments to `kappa()` are multiplied by `conc = 0` and have no effect.
