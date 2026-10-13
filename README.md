@@ -73,7 +73,7 @@ statistics (as in the paper) increase `micro`; the many-body notebooks use
 
 ## Notes on the potentials
 
-* **Hard sphere** - excluded volume only; charge and attraction off.
+* **Hard sphere** - excluded volume only.
 * **Yukawa + Lennard-Jones** - screened Coulomb (Debye length set per ionic
   strength via `kappa()`) plus a short-range Lennard-Jones attraction with well
   depth 0.075 kT.
