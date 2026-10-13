@@ -1,0 +1,81 @@
+
+temperature: 298.15
+geometry: {type: cuboid, length: [300, 300, 2000] }
+mcloop: {micro: 1000, macro: 1000}
+random: {seed: hardware}
+energy:
+    - nonbonded:
+        cutoff_g2g: 180
+        default:
+            - hardsphere:
+                mixing: arithmetic
+
+atomlist:
+    - CTR:  {mw: 16.0,  sigma: 3.13, eps: 0.005, q: -1 }
+    - HCTR: {mw: 16.0,  sigma: 3.13, eps: 0.005, q: 0 }
+    - NTR:  {mw: 14.0,  sigma: 2.99, eps: 0.005, q: 0 }
+    - HNTR: {mw: 14.0,  sigma: 2.99, eps: 0.005, q: 1 }
+    - ALA:  {mw: 66.0,  sigma: 5.02, eps: 0.005, q: 0 }
+    - ILE:  {mw: 102.0, sigma: 5.8,  eps: 0.005, q: 0 }
+    - LEU:  {mw: 102.0, sigma: 5.8,  eps: 0.005, q: 0 }
+    - MET:  {mw: 122.0, sigma: 6.16, eps: 0.005, q: 0 }
+    - PHE:  {mw: 138.0, sigma: 6.41, eps: 0.005, q: 0 }
+    - VAL:  {mw: 90.0,  sigma: 5.56, eps: 0.005, q: 0 }
+    - PRO:  {mw: 90.0,  sigma: 5.56, eps: 0.005, q: 0 }
+    - TRP:  {mw: 176.0, sigma: 6.95, eps: 0.005, q: 0 }
+    - GLY:  {mw: 54.0,  sigma: 4.69, eps: 0.005, q: 0 }
+    - ARG:  {mw: 144.0, sigma: 6.50, eps: 0.005, q: 0 }
+    - HARG: {mw: 144.0, sigma: 6.50, eps: 0.005, q: 1 }
+    - LYS:  {mw: 116.0, sigma: 6.05, eps: 0.005, q: 0 }
+    - HLYS: {mw: 116.0, sigma: 6.05, eps: 0.005, q: 1 }
+    - ASP:  {mw: 110.0, sigma: 5.94, eps: 0.005, q: -1 }
+    - HASP: {mw: 110.0, sigma: 5.94, eps: 0.005, q: 0 }
+    - LASP: {mw: 110.0, sigma: 5.94, eps: 0.005, q: 2 }
+    - GLU:  {mw: 122.0, sigma: 6.16, eps: 0.005, q: -1 }
+    - HGLU: {mw: 122.0, sigma: 6.16, eps: 0.005, q: 0 }
+    - LGLU: {mw: 122.0, sigma: 6.16, eps: 0.005, q: 2 }
+    - GLN:  {mw: 120.0, sigma: 6.12, eps: 0.005, q: 0 }
+    - ASN:  {mw: 108.0, sigma: 5.91, eps: 0.005, q: 0 }
+    - HIS:  {mw: 130.0, sigma: 6.29, eps: 0.005, q: 0 }
+    - HHIS: {mw: 130.0, sigma: 6.29, eps: 0.005, q: 1 }
+    - SER:  {mw: 82.0,  sigma: 5.39, eps: 0.005, q: 0 }
+    - THR:  {mw: 94.0,  sigma: 5.64, eps: 0.005, q: 0 }
+    - TYR:  {mw: 154.0, sigma: 6.65, eps: 0.005, q: -1 }
+    - HTYR: {mw: 154.0, sigma: 6.65, eps: 0.005, q: 0 }
+    - CYS:  {mw: 103.0, sigma: 5.72, eps: 0.005, q: -1 }
+    - HCYS: {mw: 103.0, sigma: 5.72, eps: 0.005, q: 0 }
+    - CYX:  {mw: 103.0, sigma: 5.72, eps: 0.005, q: 0 }                
+
+moleculelist:
+    - mAb_G_1:
+        structure: /lustre/hpc/cms/marpoli/projects/5_Repo_SPS/Fig_2/pqr_inputs/mAb-1_57mM.pqr
+        insdir: [0,0,0]
+        insoffset: [0,0,0]
+        keepcharges: False
+        keeppos: False
+        rigid: True
+
+    - mAb_G_2:
+        structure: /lustre/hpc/cms/marpoli/projects/5_Repo_SPS/Fig_2/pqr_inputs/mAb-1_57mM.pqr
+        insdir: [0,0,0]
+        insoffset: [0,0,150]
+        keepcharges: False
+        keeppos: False
+        rigid: True
+
+insertmolecules:
+    - mAb_G_1: {N: 1, inactive: False}
+    - mAb_G_2: {N: 1, inactive: False}
+moves:    
+    - moltransrot: {molecule: mAb_G_1, dir: [0,0,0], dprot: 0.5, dp: 0}
+    - moltransrot: {molecule: mAb_G_2, dir: [0,0,1], dprot: 0.5, dp: 60}
+
+analysis:
+    - sanity: { nstep: 1000 }
+    - density: { nstep: 1000 }
+    - savestate: { file: state.json }
+    - savestate: { file: confout.pqr }
+    - xtcfile: { file: traj.xtc, nstep: 1000, nskip: 0 }
+    - systemenergy: { file: energy.dat, nstep: 1000, nskip: 0 }
+    - molrdf: {file: rdf.dat, nstep: 1, dr: 1, name1: mAb_G_1, name2: mAb_G_2, dim: 1}
+

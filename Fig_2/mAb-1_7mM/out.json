@@ -1,0 +1,202 @@
+{
+  "analysis": [
+    {
+      "sanity": {
+        "nstep": 1000,
+        "samples": 1000
+      }
+    },
+    {
+      "atom_density": {
+        "<1/V>": 5.556e-09,
+        "<V>": 180000000.0,
+        "<∛V>": 564.6,
+        "densities": {},
+        "nstep": 1000,
+        "samples": 1000,
+        "∛<V>": 564.6
+      }
+    },
+    {
+      "savestate": {
+        "file": "state.json"
+      }
+    },
+    {
+      "savestate": {
+        "file": "confout.pqr"
+      }
+    },
+    {
+      "xtcfile": {
+        "file": "traj.xtc",
+        "nstep": 1000,
+        "samples": 1000
+      }
+    },
+    {
+      "systemenergy": {
+        "Cv/kB": 0.0,
+        "file": "energy.dat",
+        "final": [
+          0.0
+        ],
+        "init": 0.0,
+        "mean": 0.0,
+        "nstep": 1000,
+        "samples": 1000,
+        "save_min_conf": false
+      }
+    },
+    {
+      "molrdf": {
+        "dim": 1,
+        "dr": 1.0,
+        "file": "rdf.dat",
+        "name1": "mAb_G_1",
+        "name2": "mAb_G_2",
+        "nstep": 1,
+        "samples": 1000000,
+        "slicedir": [
+          0,
+          0,
+          0
+        ],
+        "thickness": 0.0
+      }
+    }
+  ],
+  "compiler": "Clang 19.1.7 (RESF 19.1.7-1.el9)",
+  "energy": [
+    {
+      "hamiltonian": [
+        {
+          "nonbonded": {
+            "cutoff_g2g": {
+              "mAb_G_1 mAb_G_1": 180.0,
+              "mAb_G_2 mAb_G_1": 180.0,
+              "mAb_G_2 mAb_G_2": 180.0
+            },
+            "functor potential": {
+              "cutoff_g2g": 180,
+              "default": [
+                {
+                  "hardsphere": {
+                    "mixing": "arithmetic"
+                  }
+                }
+              ]
+            },
+            "relative time": 0.4949485132123104,
+            "selfenergy": {
+              "dipole": false,
+              "monopole": false
+            },
+            "summation_policy": "serial"
+          }
+        }
+      ]
+    }
+  ],
+  "geometry": {
+    "length": [
+      300.0,
+      300.0,
+      2000.0
+    ],
+    "type": "cuboid"
+  },
+  "git revision": "9f15b177 (2026-03-10)",
+  "groups": [
+    {
+      "mAb_G_1": {
+        "compressible": false,
+        "index": [
+          0,
+          1325
+        ],
+        "size": 1326
+      }
+    },
+    {
+      "mAb_G_2": {
+        "compressible": false,
+        "index": [
+          1326,
+          2651
+        ],
+        "size": 1326
+      }
+    }
+  ],
+  "montecarlo": {
+    "average potential energy (kT)": 0.0,
+    "last move": "moltransrot"
+  },
+  "moves": [
+    {
+      "moltransrot": {
+        "R/Å ≈ √(⟨r²⟩/4⟨θ²⟩)": 0.0,
+        "acceptance": 0.998,
+        "dir": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "dirrot": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "dp": 0.0,
+        "dprot": 0.5,
+        "molecule": "mAb_G_1",
+        "molid": 0,
+        "moves": 1001530,
+        "relative time": 0.499,
+        "repeat": 1,
+        "stochastic": true,
+        "√⟨r²⟩": 0.0,
+        "√⟨θ²⟩": 0.144,
+        "√⟨θ²⟩/°": 8.26
+      }
+    },
+    {
+      "moltransrot": {
+        "R/Å ≈ √(⟨r²⟩/4⟨θ²⟩)": 120.0,
+        "acceptance": 0.983,
+        "dir": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "dirrot": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "dp": 60.0,
+        "dprot": 0.5,
+        "molecule": "mAb_G_2",
+        "molid": 1,
+        "moves": 998470,
+        "relative time": 0.501,
+        "repeat": 1,
+        "stochastic": true,
+        "√⟨r²⟩": 34.2,
+        "√⟨θ²⟩": 0.143,
+        "√⟨θ²⟩/°": 8.2
+      }
+    }
+  ],
+  "number of groups": 2,
+  "number of particles": 2652,
+  "number of sweeps": 1000000,
+  "reactionlist": null,
+  "relative drift": 0.0,
+  "simulation time": {
+    "in minutes": 179.41666666666666,
+    "in seconds": 10765
+  },
+  "temperature": 298.15
+}

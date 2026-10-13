@@ -1,0 +1,12 @@
+name: sps-mab
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - faunus=2.16.3     # Monte Carlo engine + yason.py; verify the build on conda-forge
+  - numpy
+  - scipy
+  - matplotlib
+  - jinja2
+  - jupyterlab
+  - pyyaml
